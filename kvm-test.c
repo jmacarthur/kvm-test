@@ -102,8 +102,7 @@ void* vmStopper(void* args)
 
   struct kvm_interrupt interruptStuff;
   interruptStuff.irq = 3;
-  //int res = ioctl(vm1->vcpufd, KVM_INTERRUPT, &interruptStuff);
-  int res = ioctl(vm1->vcpufd, KVM_NMI, 0);
+  int res = ioctl(vm1->vcpufd, KVM_INTERRUPT, &interruptStuff);
   if(res == 0) {
     printf("Interrupted successfully\n");
   } else {
